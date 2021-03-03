@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+require_once getcwd() . '/vendor/autoload.php';
+
+$status = (new \Spartan\Console\Application())
+    ->withCommands([getcwd() . '/vendor/spartan/docker/src/Command'])
+    ->withDefaultStyles()
+    ->run();
+
+exit($status);
