@@ -1,4 +1,11 @@
 # Changelog
+### [0.1.1](https://github.com/spartan/docker/compare/v0.1.0...v0.1.1) (2021-03-04)
+
+
+### New
+
+* spartan provision config ([87eef1d](https://github.com/spartan/docker/commit/87eef1d21f6496bd180fcbaf08d267da7ba4c4f2))
+
 ## 0.1.0 (2021-03-03)
 
 
