@@ -42,7 +42,21 @@
     "config": {
         "sort-packages": true
     },
-    "scripts": {
+    "extra": {
+        "spartan": {
+            "install": {
+                "env": {
+                    "DOCKER_STACK": "@php getenv('APP_SLUG') ?: 'spartan';",
+                    "DOCKER_PORT": "@php rand(101, 640);"
+                },
+                "commands": [
+                    "__DIR__ . '/../vendor/spartan/docker/src/Command'"
+                ],
+                "help": [
+                    "Run `./spartan docker:init` to initialize docker compose configurations"
+                ]
+            }
+        }
     },
     "bin": [
         "bin/docker"
