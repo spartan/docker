@@ -47,7 +47,7 @@ class Init extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->loadEnv();
+        self::loadEnv();
 
         $src = __DIR__ . '/../../config';
         $dst = getcwd() . '/config/docker';

@@ -24,7 +24,6 @@ class Compose extends Command
              ->withArgument('operation', 'Operation. Check `docker/compose.sh`')
              ->withOption('target', 'Remote name')
              ->withOption('dev', 'Alias for --target=dev')
-             ->withOption('devel', 'Alias for --target=devel')
              ->withOption('test', 'Alias for --target=test')
              ->withOption('qa', 'Alias for --target=qa')
              ->withOption('stage', 'Alias for --target=stage')
@@ -36,9 +35,36 @@ class Compose extends Command
      * @param OutputInterface $output
      *
      * @return int
+     * @throws \ReflectionException
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $env = null;
+
+        if ($this->isOptionPresent('target')) {
+            $env = $input->getOption('target');
+        } else {
+            $env = key(
+                array_filter(
+                    [
+                        'dev'    => $this->isOptionPresent('dev'),
+                        'test'   => $this->isOptionPresent('test'),
+                        'qa'     => $this->isOptionPresent('qa'),
+                        'stage'  => $this->isOptionPresent('stage'),
+                        'review' => $this->isOptionPresent('review'),
+                    ]
+                )
+            ) ?: 'dev';
+        }
+
+        $remote = \Spartan\Provisioner\Command\Remote\Remote::forEnv($env);
+
+        $this->process(
+            ['./config/docker/compose.sh', $input->getArgument('operation')],
+            $output,
+            $remote
+        );
+
         return 0;
     }
 }

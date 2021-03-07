@@ -24,6 +24,7 @@
     "require": {
         "php": ">=7.4",
         "spartan/console": "^0.1.0",
+        "spartan/provisioner": "^0.1.0",
         "symfony/yaml": "^5.0"
     },
     "autoload": {
