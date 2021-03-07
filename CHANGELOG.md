@@ -1,4 +1,11 @@
 # Changelog
+### [0.1.2](https://github.com/spartan/docker/compare/v0.1.1...v0.1.2) (2021-03-07)
+
+
+### New
+
+* add docker:compose command ([f0013ca](https://github.com/spartan/docker/commit/f0013ca1c59a9f124dc216a67c204fb9b38589c2))
+
 ### [0.1.1](https://github.com/spartan/docker/compare/v0.1.0...v0.1.1) (2021-03-04)
 
 
