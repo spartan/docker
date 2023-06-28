@@ -1,4 +1,11 @@
 # Changelog
+### [0.1.4](https://github.com/spartan/docker/compare/v0.1.3...v0.1.4) (2023-06-28)
+
+
+### Changes
+
+* clean compose.sh file ([91630d2](https://github.com/spartan/docker/commit/91630d2c4cb3789f1af74e922da22040a4a5e5c0))
+
 ### [0.1.3](https://github.com/spartan/docker/compare/v0.1.2...v0.1.3) (2023-06-28)
 
 
