@@ -60,7 +60,7 @@ class Compose extends Command
         $remote = \Spartan\Provisioner\Command\Remote\Remote::forEnv($env);
 
         $this->process(
-            ['./config/docker/compose.sh', $input->getArgument('operation')],
+            ['./config/docker/compose.sh', str_replace(':', ' ', $input->getArgument('operation'))],
             $output,
             $remote
         );

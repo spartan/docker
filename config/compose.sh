@@ -37,11 +37,11 @@ down)
     ;;
 
 stop)
-    docker-compose --env-file ${ENV_FILE} -f ${FILE} -p ${STACK} stop --timeout=10
+    docker-compose --env-file ${ENV_FILE} -f ${FILE} -p ${STACK} stop $2 --timeout=10
     ;;
 
 restart)
-    docker-compose --env-file ${ENV_FILE} restart
+    docker-compose --env-file ${ENV_FILE} restart $2
     ;;
 
 update)
@@ -68,8 +68,8 @@ logs | l)
     docker --env-file ${ENV_FILE} logs -f ${STACK}"_"$2 --since=5m
     ;;
 
-interact | i)
-    docker --env-file ${ENV_FILE} exec -it ${STACK}"_"$2 /bin/sh
+jump | j)
+    docker exec -it ${STACK}"_"$2 /bin/sh
     ;;
 
 *)
