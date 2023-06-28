@@ -29,43 +29,47 @@ STACK=${DOCKER_STACK}
 #
 case "$1" in
 up)
-    docker-compose --env-file ${ENV_FILE} -f ${FILE} -p ${STACK} up -d
+    docker-compose -f ${FILE} -p ${STACK} up -d
     ;;
 
 down)
-    docker-compose --env-file ${ENV_FILE} -f ${FILE} -p ${STACK} down
+    docker-compose -f ${FILE} -p ${STACK} down
     ;;
 
 stop)
-    docker-compose --env-file ${ENV_FILE} -f ${FILE} -p ${STACK} stop $2 --timeout=10
+    docker-compose -f ${FILE} -p ${STACK} stop $2 --timeout=10
+    ;;
+
+start)
+    docker-compose -f ${FILE} -p ${STACK} stop $2
     ;;
 
 restart)
-    docker-compose --env-file ${ENV_FILE} restart $2
+    docker-compose -f ${FILE} -p ${STACK} restart $2
     ;;
 
 update)
-    docker-compose --env-file ${ENV_FILE} -f ${FILE} -p ${STACK} down
-    docker-compose --env-file ${ENV_FILE} -f ${FILE} pull
-    docker-compose --env-file ${ENV_FILE} -f ${FILE} -p ${STACK} up -d
+    docker-compose -f ${FILE} -p ${STACK} down
+    docker-compose -f ${FILE} pull
+    docker-compose -f ${FILE} -p ${STACK} up -d
     ;;
 
 rebuild)
-    docker-compose --env-file ${ENV_FILE} -f ${FILE} -p ${STACK} down
-    docker-compose --env-file ${ENV_FILE} -f ${FILE} -p ${STACK} up --build -d
+    docker-compose -f ${FILE} -p ${STACK} down
+    docker-compose -f ${FILE} -p ${STACK} up --build -d
     ;;
 
 remove | rm)
-    docker-compose --env-file ${ENV_FILE} -f ${FILE} -p ${STACK} down -v --remove-orphans
-    docker-compose --env-file ${ENV_FILE} -f ${FILE} -p ${STACK} rm -vsf
+    docker-compose -f ${FILE} -p ${STACK} down -v --remove-orphans
+    docker-compose -f ${FILE} -p ${STACK} rm -vsf
     ;;
 
 config)
-    docker-compose --env-file ${ENV_FILE} -f ${FILE} -p ${STACK} config
+    docker-compose -f ${FILE} -p ${STACK} config
     ;;
 
 logs | l)
-    docker --env-file ${ENV_FILE} logs -f ${STACK}"_"$2 --since=5m
+    docker logs -f ${STACK}"_"$2 --since=5m
     ;;
 
 jump | j)
