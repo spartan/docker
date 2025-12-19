@@ -41,7 +41,7 @@ stop)
     ;;
 
 start)
-    docker-compose -f ${FILE} -p ${STACK} stop $2
+    docker-compose -f ${FILE} -p ${STACK} start $2
     ;;
 
 restart)
