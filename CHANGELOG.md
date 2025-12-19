@@ -1,4 +1,11 @@
 # Changelog
+### [0.1.5](https://github.com/spartan/docker/compare/v0.1.4...v0.1.5) (2025-12-19)
+
+
+### Changes
+
+* accept spartan/console:0.2 ([77b3cac](https://github.com/spartan/docker/commit/77b3cacf575627b46c6f97c82de2946c5af5f6c8))
+
 ### [0.1.4](https://github.com/spartan/docker/compare/v0.1.3...v0.1.4) (2023-06-28)
 
 
